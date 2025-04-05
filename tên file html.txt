@@ -1,0 +1,12 @@
+(attendance.html là Quản lý chấm công 
+dashboard.html là màn hình chào
+database.html là dữ liệu database
+position.html là quản lý chức vụ
+reward_discipline.html là khen thưởng/ kỷ luật
+salary.html là quản lý lương
+staff.html là quản lý nhân sự
+statistics.html là thống kê
+time.html là quản lý giờ làm ) ----> admin
+
+prolife.html là thông tin cá nhân ( nhân viên)
+login.html là đăng nhập

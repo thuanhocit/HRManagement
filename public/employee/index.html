@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chấm Công</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; background-color: #f4f7fc; }
+        form { display: inline-block; text-align: left; background: #f9f9f9; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        label, input { display: block; margin: 10px 0; width: 100%; }
+        input { padding: 8px; font-size: 16px; }
+        button { padding: 10px 15px; background: #28a745; color: white; border: none; cursor: pointer; font-size: 16px; }
+        button:hover { background: #218838; }
+        #message { margin-top: 15px; font-weight: bold; font-size: 16px; }
+        h2 { font-size: 24px; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <h2>Chấm Công</h2>
+    <form id="attendanceForm">
+        <label for="check_in">Giờ Check-in:</label>
+        <input type="time" id="check_in" name="check_in" required>
+
+        <label for="check_out">Giờ Check-out:</label>
+        <input type="time" id="check_out" name="check_out" required>
+
+        <button type="submit">Gửi</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Đặt giờ check-in mặc định là giờ hiện tại
+            const now = new Date();
+            document.getElementById("check_in").value = now.toISOString().substr(11, 5);
+        });
+
+        document.getElementById("attendanceForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const checkIn = document.getElementById("check_in").value;
+            const checkOut = document.getElementById("check_out").value;
+            const message = document.getElementById("message");
+
+            // Kiểm tra tính hợp lệ của giờ Check-in và Check-out
+            if (!checkIn || !checkOut) {
+                message.innerText = "Vui lòng nhập đầy đủ giờ Check-in và Check-out!";
+                message.style.color = "red";
+                return;
+            }
+
+            if (checkIn >= checkOut) {
+                message.innerText = "Giờ Check-out phải lớn hơn Check-in!";
+                message.style.color = "red";
+                return;
+            }
+
+            // Gửi yêu cầu chấm công đến máy chủ
+            fetch("/attendance", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ check_in: checkIn, check_out: checkOut })
+            })
+            .then(response => response.json())
+            .then(data => {
+                message.innerText = data.message || "Đã gửi thành công!";
+                message.style.color = data.success ? "green" : "red";
+            })
+            .catch(error => {
+                message.innerText = "Lỗi khi gửi dữ liệu!";
+                message.style.color = "red";
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Nhân viên</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/employee.css">
+    <style>
+        /* Tổng thể */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #eef2f3, #8e9eab);
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            padding: 25px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        nav {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            background-color: #34495e;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        nav a:hover {
+            background-color: #1abc9c;
+            transform: translateY(-2px);
+        }
+
+        /* Main content */
+        main {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+
+        /* Cải tiến cho các màn hình nhỏ */
+        @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            main {
+                padding: 50px 15px 15px 15px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                margin-bottom: 8px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Thanh điều hướng -->
+    <nav>
+        <a href="/employee/dashboard.html">Dashboard</a>
+        <a href="/employee/attendance.html">Chấm công</a>
+        <a href="/employee/profile.html">Thông tin cá nhân</a>
+        <a href="/logout">Đăng xuất</a>
+    </nav>
+
+    <!-- Nội dung chính -->
+    <main>
+        <h2>Dashboard Nhân viên</h2>
+        <p>thêm cái gì thì ghi và dây.</p>
+    </main>
+
+    <script src="/js/employee.js"></script>
+</body>
+</html>

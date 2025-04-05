@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thống kê - Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #3e8e41;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            margin: 0 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #45a049;
+        }
+
+        /* Heading */
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        /* Table styling */
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        table td {
+            background-color: #f9f9f9;
+        }
+
+        table td button {
+            background-color: #f44336;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        table td button:hover {
+            background-color: #e53935;
+        }
+
+        /* Message Box */
+        .message {
+            margin: 20px auto;
+            text-align: center;
+            padding: 12px;
+            background-color: #f4f7fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="/admin/dashboard.html">Dashboard</a>
+        <a href="/admin/staff.html">Nhân sự</a>
+        <a href="/admin/position.html">Chức vụ</a>
+        <a href="/admin/time.html">Giờ làm</a>
+        <a href="/admin/attendance.html">Chấm công</a>
+        <a href="/admin/salary.html">Lương</a>
+        <a href="/admin/reward_discipline.html">Khen thưởng/Kỷ luật</a>
+        <a href="/admin/statistics.html">Thống kê</a>
+        <a href="/logout">Đăng xuất</a>
+    </nav>
+
+    <!-- Main Content -->
+    <h2>Thống kê giờ làm</h2>
+
+    <!-- Stats Table -->
+    <table id="statsTable">
+        <thead>
+            <tr>
+                <th>Nhân viên</th>
+                <th>Tổng giờ làm</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dữ liệu nhân viên sẽ được điền vào đây từ JavaScript -->
+        </tbody>
+    </table>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html>

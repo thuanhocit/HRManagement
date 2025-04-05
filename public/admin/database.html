@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dữ liệu Database - Admin</title>
+    <style>
+        /* Toàn bộ trang */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Thanh điều hướng (Nav bar) */
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+            position: fixed;
+            width: 200px;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            margin: 5px 0;
+            font-size: 16px;
+            display: block;
+        }
+
+        nav a:hover {
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+
+        /* Chính */
+        main {
+            margin-left: 220px;
+            padding: 30px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        /* Tạo bảng dữ liệu */
+        #tables {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Hiệu ứng loading cho dữ liệu */
+        .loading {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            padding: 50px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/admin/dashboard.html">Dashboard</a>
+        <a href="/admin/staff.html">Nhân sự</a>
+        <a href="/admin/position.html">Chức vụ</a>
+        <a href="/admin/time.html">Giờ làm</a>
+        <a href="/admin/attendance.html">Chấm công</a>
+        <a href="/admin/salary.html">Lương</a>
+        <a href="/admin/reward_discipline.html">Khen thưởng/Kỷ luật</a>
+        <a href="/admin/statistics.html">Thống kê</a>
+        <a href="/admin/database.html">Database</a>
+        <a href="/logout">Đăng xuất</a>
+    </nav>
+    <main>
+        <h2>Dữ liệu Database</h2>
+        <div id="tables" class="loading">Đang tải dữ liệu...</div>
+    </main>
+    <script src="/js/admin.js"></script>
+</body>
+</html>

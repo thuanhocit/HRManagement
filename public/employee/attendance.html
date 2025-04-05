@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chấm công - Nhân viên</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/employee.css">
+    <style>
+        /* Tổng thể */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #eef2f3, #8e9eab);
+            color: #333;
+        }
+    
+        /* Header */
+        header {
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            padding: 25px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: 600;
+        }
+    
+        /* Navigation */
+        nav {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            background-color: #34495e;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+    
+        nav a:hover {
+            background-color: #1abc9c;
+            transform: translateY(-2px);
+        }
+    
+        /* Main content */
+        main {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+    
+        .attendance-form {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+    
+        .attendance-form label {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 8px;
+            display: block;
+            color: #444;
+        }
+    
+        .attendance-form input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+    
+        .attendance-form input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+    
+        .attendance-form button {
+            background-color: #1abc9c;
+            color: white;
+            padding: 14px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+    
+        .attendance-form button:hover {
+            background-color: #16a085;
+            transform: translateY(-2px);
+        }
+    
+        .message {
+            color: #27ae60;
+            font-size: 16px;
+            margin-top: 10px;
+            text-align: center;
+        }
+    
+        .attendance-table {
+            margin-top: 40px;
+        }
+    
+        .attendance-table table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        }
+    
+        .attendance-table th, .attendance-table td {
+            padding: 16px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+    
+        .attendance-table th {
+            background-color: #2980b9;
+            color: white;
+            font-weight: 600;
+        }
+    
+        @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 28px;
+            }
+    
+            .attendance-form, .attendance-table {
+                padding: 20px;
+            }
+    
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            nav a {
+                margin-bottom: 8px;
+                font-size: 16px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Chấm công</h1>
+        <nav>
+            <a href="/employee/dashboard.html">Dashboard</a>
+            <a href="/employee/attendance.html">Chấm công</a>
+            <a href="/employee/profile.html">Thông tin cá nhân</a>
+            <a href="/logout">Đăng xuất</a>
+        </nav>
+    </header>
+
+    <!-- Nội dung chính -->
+    <main>
+        <!-- Form chấm công -->
+        <section class="attendance-form">
+            <form id="attendanceForm">
+                <label for="check_in">Giờ vào:</label>
+                <input type="datetime-local" id="check_in" required>
+                <label for="check_out">Giờ ra:</label>
+                <input type="datetime-local" id="check_out" required>
+                <button type="submit">Chấm công</button>
+            </form>
+            <div id="message" class="message"></div>
+        </section>
+
+        <!-- Bảng chấm công -->
+        <section class="attendance-table">
+            <table id="attendanceTable">
+                <thead>
+                    <tr>
+                        <th>Ngày</th>
+                        <th>Giờ vào</th>
+                        <th>Giờ ra</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="/js/employee.js"></script>
+</body>
+</html>
